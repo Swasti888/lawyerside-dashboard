@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import TemplateLibrary from './pages/TemplateLibrary'
 import NegotiatedDocuments from './pages/NegotiatedDocuments'
 import LegalQueries from './pages/LegalQueries'
-import MyLegalCounsel from './pages/MyLegalCounsel'
+import MyLegalCounsel from './pages/MyLegalCounsel.tsx'
 import ClientAlerts from './pages/ClientAlerts'
 
 function App() {
