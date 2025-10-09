@@ -4,13 +4,11 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
-import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { useToast } from '@/hooks/use-toast'
 
 export default function MyLegalCounsel() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false)
   const [quoteData, setQuoteData] = useState({
     matterDescription: '',
     estimatedHours: '',
@@ -40,15 +38,10 @@ export default function MyLegalCounsel() {
   }
 
   const handleGetQuote = () => {
-    setQuoteModalOpen(true)
-  }
-
-  const handleQuoteSubmit = () => {
     toast({
       title: "Quote Request Submitted",
       description: "Your quote request has been sent to Sarah Chen",
     })
-    setQuoteModalOpen(false)
     setQuoteData({ matterDescription: '', estimatedHours: '', urgency: 'standard' })
   }
 
