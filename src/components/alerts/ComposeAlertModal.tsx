@@ -99,7 +99,6 @@ export default function ComposeAlertModal({
         tags: formData.tags,
         audience: formData.audience,
         heroImage: heroImage ? `/uploads/${heroImage.name}` : undefined,
-        status: 'draft' as const,
       })
       
       // Override status to draft since dataUtils.publishClientAlert sets it to published
