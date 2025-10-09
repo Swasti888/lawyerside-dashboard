@@ -147,10 +147,11 @@ export default function QueryDetailModal({
 
           {/* Query Content */}
           <Tabs defaultValue="analysis" className="flex-1 flex flex-col">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-5">
               <TabsTrigger value="analysis">Analysis</TabsTrigger>
               <TabsTrigger value="issues">Issues</TabsTrigger>
               <TabsTrigger value="clauses">Key Clauses</TabsTrigger>
+              <TabsTrigger value="templates">Template Prompts</TabsTrigger>
               <TabsTrigger value="original">Original Query</TabsTrigger>
             </TabsList>
 
@@ -266,6 +267,52 @@ export default function QueryDetailModal({
                       </Button>
                     </div>
                   ))}
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="templates" className="flex-1 mt-4">
+              <div className="space-y-4 max-h-96 overflow-y-auto">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold">Template Prompts</h3>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-blue-600 text-sm font-bold">1</span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-blue-800">Deviation Summary</h4>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-400">
+                    <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-orange-600 text-sm font-bold">2</span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-orange-800">Highlight Issues</h4>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-green-600 text-sm font-bold">3</span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-green-800">Explain Provision</h4>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
+                    <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-purple-600 text-sm font-bold">4</span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-purple-800">Revise Provision</h4>
+                    </div>
+                  </div>
                 </div>
               </div>
             </TabsContent>

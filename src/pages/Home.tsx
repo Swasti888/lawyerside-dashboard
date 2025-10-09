@@ -1,28 +1,21 @@
-import { useState } from 'react'
-import ProfileCard from '@/components/home/ProfileCard'
-import ActivityFeed from '@/components/home/ActivityFeed'
-import InsightsPanel from '@/components/home/InsightsPanel'
-import CompareVersionsModal from '@/components/home/CompareVersionsModal'
-import LegalQueryModal from '@/components/home/LegalQueryModal'
-import DocumentPreviewModal from '@/components/home/DocumentPreviewModal'
-import { ActivityPost } from '@/data/types'
+import { FileText, Search, Bot, ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
-  const [selectedActivity, setSelectedActivity] = useState<ActivityPost | null>(null)
-  const [compareModalOpen, setCompareModalOpen] = useState(false)
-  const [queryModalOpen, setQueryModalOpen] = useState(false)
-  const [documentPreviewOpen, setDocumentPreviewOpen] = useState(false)
+  const navigate = useNavigate()
 
-  const handleActivityClick = (activity: ActivityPost) => {
-    setSelectedActivity(activity)
-    
-    if (activity.type === 'first_turn' && activity.documentId) {
-      setCompareModalOpen(true)
-    } else if (activity.type === 'legal_query' && activity.queryId) {
-      setQueryModalOpen(true)
-    } else if (activity.type === 'executed_document' && activity.documentId) {
-      setDocumentPreviewOpen(true)
-    }
+  const handleGenerateDocument = () => {
+    navigate('/templates')
+  }
+
+  const handleAnalyzeDocument = () => {
+    navigate('/documents')
+  }
+
+  const handleQueryDocuments = () => {
+    navigate('/queries')
   }
 
   return (
@@ -32,47 +25,67 @@ export default function Home() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-muted-foreground mt-1">
-            Welcome back, Sarah. Here's what's happening with your legal practice.
+            Welcome back, Sarah. What would you like to do today?
           </p>
         </div>
       </div>
 
-      {/* Three Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Column 1: Profile (3 columns) */}
-        <div className="lg:col-span-3">
-          <ProfileCard />
-        </div>
+      {/* Three CTA Cards - ChatGPT Style */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {/* Generate a Document */}
+        <Card className="cursor-pointer hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/20" onClick={handleGenerateDocument}>
+          <CardHeader className="text-center pb-4">
+            <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center">
+              <FileText className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+            </div>
+            <CardTitle className="text-xl">Generate a Document</CardTitle>
+            <CardDescription>
+              Create legal documents from templates or start from scratch
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center">
+            <Button variant="outline" className="w-full">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </CardContent>
+        </Card>
 
-        {/* Column 2: Activity Feed (6 columns) */}
-        <div className="lg:col-span-6">
-          <ActivityFeed onActivityClick={handleActivityClick} />
-        </div>
+        {/* Analyze a Document */}
+        <Card className="cursor-pointer hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/20" onClick={handleAnalyzeDocument}>
+          <CardHeader className="text-center pb-4">
+            <div className="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center">
+              <Search className="h-8 w-8 text-green-600 dark:text-green-400" />
+            </div>
+            <CardTitle className="text-xl">Analyze a Document</CardTitle>
+            <CardDescription>
+              Review and analyze documents for issues and improvements
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center">
+            <Button variant="outline" className="w-full">
+              Start Analysis <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </CardContent>
+        </Card>
 
-        {/* Column 3: Insights (3 columns) */}
-        <div className="lg:col-span-3">
-          <InsightsPanel />
-        </div>
+        {/* Query Your Documents or the Internet */}
+        <Card className="cursor-pointer hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/20" onClick={handleQueryDocuments}>
+          <CardHeader className="text-center pb-4">
+            <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center">
+              <Bot className="h-8 w-8 text-purple-600 dark:text-purple-400" />
+            </div>
+            <CardTitle className="text-xl">Query Your Documents or the Internet</CardTitle>
+            <CardDescription>
+              Ask questions about your documents or research legal topics
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center">
+            <Button variant="outline" className="w-full">
+              Ask Question <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </CardContent>
+        </Card>
       </div>
-
-      {/* Modals */}
-      <CompareVersionsModal
-        open={compareModalOpen}
-        onOpenChange={setCompareModalOpen}
-        activity={selectedActivity}
-      />
-      
-      <LegalQueryModal
-        open={queryModalOpen}
-        onOpenChange={setQueryModalOpen}
-        activity={selectedActivity}
-      />
-      
-      <DocumentPreviewModal
-        open={documentPreviewOpen}
-        onOpenChange={setDocumentPreviewOpen}
-        activity={selectedActivity}
-      />
     </div>
   )
 }

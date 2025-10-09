@@ -59,7 +59,7 @@ export default function LegalQueries() {
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Legal Queries</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Legal Queries / Analysis</h1>
           <p className="text-muted-foreground mt-1">
             AI-powered legal research and analysis for your clients.
           </p>

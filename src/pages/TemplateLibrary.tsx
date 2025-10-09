@@ -52,10 +52,15 @@ export default function TemplateLibrary() {
             Manage your legal document templates and share them with clients.
           </p>
         </div>
-        <Button onClick={() => setAddModalOpen(true)} className="focus-ring">
-          <Plus className="h-4 w-4 mr-2" />
-          Add New Template
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" className="focus-ring">
+            Request Template from My Counsel
+          </Button>
+          <Button onClick={() => setAddModalOpen(true)} className="focus-ring">
+            <Plus className="h-4 w-4 mr-2" />
+            Add / Create New Template
+          </Button>
+        </div>
       </div>
 
       {/* Filters and Controls */}

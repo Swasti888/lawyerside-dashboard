@@ -50,6 +50,7 @@ export default function NewQueryModal({
     clientId: '',
     model: 'claude-3.5-sonnet',
     topic: '',
+    queryType: 'documents', // 'documents' or 'internet'
     prompt: '',
   })
   const [attachments, setAttachments] = useState<File[]>([])
@@ -102,6 +103,7 @@ export default function NewQueryModal({
         clientId: '',
         model: 'claude-3.5-sonnet',
         topic: '',
+        queryType: 'documents',
         prompt: '',
       })
       setAttachments([])
@@ -224,29 +226,48 @@ export default function NewQueryModal({
             </div>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="model">AI Model *</Label>
-            <Select 
-              value={formData.model} 
-              onValueChange={(value) => setFormData(prev => ({ ...prev, model: value }))}
-            >
-              <SelectTrigger className="focus-ring">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {availableModels.map(model => (
-                  <SelectItem key={model.id} value={model.id}>
-                    <div className="flex items-center gap-2">
-                      <Bot className="h-4 w-4" />
-                      <div>
-                        <div className="font-medium">{model.name}</div>
-                        <div className="text-xs text-muted-foreground">{model.description}</div>
-                      </div>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="queryType">Query Type *</Label>
+              <Select 
+                value={formData.queryType} 
+                onValueChange={(value) => setFormData(prev => ({ ...prev, queryType: value }))}
+              >
+                <SelectTrigger className="focus-ring">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="documents">
+                    Query Your Documents
                   </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+                  <SelectItem value="internet">
+                    Query Public Domain
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="model" className="text-sm text-muted-foreground">Select AI Model</Label>
+              <Select 
+                value={formData.model} 
+                onValueChange={(value) => setFormData(prev => ({ ...prev, model: value }))}
+              >
+                <SelectTrigger className="focus-ring h-8 text-sm">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableModels.map(model => (
+                    <SelectItem key={model.id} value={model.id}>
+                      <div className="flex items-center gap-2">
+                        <Bot className="h-3 w-3" />
+                        <span className="text-sm">{model.name}</span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           <div className="space-y-2">

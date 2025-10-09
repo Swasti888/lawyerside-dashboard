@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Template Library', href: '/templates' },
   { name: 'Negotiated Documents', href: '/documents' },
   { name: 'Legal Queries', href: '/queries' },
+  { name: 'My Legal Counsel', href: '/counsel' },
   { name: 'Client Alerts', href: '/alerts' },
 ]
 
@@ -23,11 +24,13 @@ export default function TopNavigation() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-8">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">C</span>
-              </div>
-              <span className="font-semibold text-xl">Calex</span>
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src="/calexlogo.png" 
+                alt="Calex Logo" 
+                className="h-16 w-16 object-contain"
+              />
+              <span className="font-semibold text-2xl">Calex</span>
             </Link>
 
             {/* Navigation Links */}
