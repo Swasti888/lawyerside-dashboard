@@ -74,7 +74,7 @@ export default function Home() {
             <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center">
               <Bot className="h-8 w-8 text-purple-600 dark:text-purple-400" />
             </div>
-            <CardTitle className="text-xl">Query Your Documents or the Internet</CardTitle>
+            <CardTitle className="text-xl">Query Your Documents</CardTitle>
             <CardDescription>
               Ask questions about your documents or research legal topics
             </CardDescription>

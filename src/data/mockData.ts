@@ -520,6 +520,388 @@ Our firm is prepared to help you navigate these changes efficiently. Please reac
     views: 142,
     engagement: 23,
   },
+  {
+    id: 'alert-2',
+    title: 'Delaware Corporate Law Updates: What Startups Need to Know',
+    summary: 'Recent amendments to Delaware General Corporation Law affect director liability and stock option grants.',
+    content: `Delaware has updated its corporate law framework with several important changes that directly impact startup operations and governance. These amendments, effective January 1, 2025, modernize several key provisions that startups rely on.
+
+## Key Updates:
+
+### Director Liability Protections
+- Enhanced exculpation provisions for independent directors
+- New safe harbors for business judgment decisions
+- Updated standards for conflict of interest transactions
+
+### Stock Option and Equity Plans
+- Streamlined approval processes for employee equity grants
+- New flexibility in option vesting schedules
+- Simplified procedures for plan amendments
+
+### Digital Communication Requirements
+- Electronic notice requirements for shareholder meetings
+- Digital proxy voting enhancements
+- Online document delivery standards
+
+## Action Items:
+
+1. **Review Bylaws**: Ensure your bylaws reflect new liability protections
+2. **Update Equity Plans**: Consider amendments to leverage new flexibility
+3. **Digital Infrastructure**: Prepare for enhanced electronic communication requirements
+
+These changes position Delaware as an even more attractive jurisdiction for growing companies.`,
+    tags: ['Delaware', 'Corporate Law', 'Governance', 'Equity'],
+    audience: ['client-1', 'client-2', 'client-3'],
+    heroImage: '/delaware-law-updates.jpg',
+    publishedAt: '2024-09-25T14:30:00Z',
+    status: 'published',
+    views: 89,
+    engagement: 15,
+  },
+  {
+    id: 'alert-3',
+    title: 'Remote Work Compliance: State-by-State Considerations',
+    summary: 'Navigating employment law requirements for distributed teams across multiple jurisdictions.',
+    content: `As remote work becomes the standard, startups face increasing complexity in managing distributed teams across state lines. Each state has unique employment law requirements that can create significant compliance challenges.
+
+## Critical Considerations:
+
+### State Registration Requirements
+- Business registration in states where employees reside
+- Workers' compensation coverage requirements
+- Unemployment insurance obligations
+
+### Wage and Hour Compliance
+- Minimum wage variations across jurisdictions
+- Overtime calculation differences
+- Meal and rest break requirements
+
+### Tax Implications
+- State income tax withholding obligations
+- Nexus considerations for business taxes
+- Employee tax withholding requirements
+
+## Best Practices:
+
+1. **Audit Your Workforce**: Map employee locations and identify all relevant jurisdictions
+2. **Centralize Policies**: Develop consistent policies that meet the strictest state requirements
+3. **Partner with Experts**: Consider PEO solutions for complex multi-state situations
+
+## High-Risk States:
+- California: Strictest employment protections
+- New York: Complex wage and hour requirements
+- Washington: Progressive employment policies
+
+Proper planning and compliance can prevent costly penalties and litigation.`,
+    tags: ['Remote Work', 'Employment Law', 'Compliance', 'Multi-State'],
+    audience: ['client-3', 'client-4', 'client-5'],
+    heroImage: '/remote-work-compliance.jpg',
+    publishedAt: '2024-09-22T09:15:00Z',
+    status: 'published',
+    views: 156,
+    engagement: 28,
+  },
+  {
+    id: 'alert-4',
+    title: 'IP Protection Strategies for AI-Enabled Startups',
+    summary: 'How to protect intellectual property when your product relies on artificial intelligence and machine learning.',
+    content: `Artificial intelligence is transforming how startups operate, but it also creates unique intellectual property challenges. Traditional IP protection strategies may not fully address the nuances of AI-driven businesses.
+
+## AI-Specific IP Considerations:
+
+### Patent Protection
+- AI algorithm patentability requirements
+- Data processing method claims
+- Machine learning model protection strategies
+
+### Trade Secret Management
+- Protecting training datasets
+- Securing proprietary algorithms
+- Managing AI model parameters
+
+### Copyright Issues
+- Training data ownership questions
+- AI-generated content copyright
+- Open source license compliance
+
+## Strategic Recommendations:
+
+### Immediate Actions
+1. **Audit Your AI Assets**: Catalog all algorithms, datasets, and models
+2. **Document Development**: Maintain detailed records of AI system development
+3. **Review Third-Party Data**: Ensure proper licensing for training data
+
+### Long-Term Strategy
+- Consider defensive patent strategies
+- Implement robust trade secret protection
+- Develop AI-specific employment agreements
+
+### Risk Mitigation
+- Regular IP audits and updates
+- Employee training on AI IP issues
+- Vendor agreement reviews for AI tools
+
+The intersection of AI and IP law is rapidly evolving. Staying ahead requires proactive protection strategies.`,
+    tags: ['AI', 'Intellectual Property', 'Patents', 'Trade Secrets'],
+    audience: ['client-1', 'client-3', 'client-5'],
+    heroImage: '/ai-ip-protection.jpg',
+    publishedAt: '2024-09-20T16:45:00Z',
+    status: 'published',
+    views: 203,
+    engagement: 41,
+  },
+  {
+    id: 'alert-5',
+    title: 'Data Privacy Regulations: Beyond GDPR and CCPA',
+    summary: 'Emerging state privacy laws create new compliance obligations for data-driven startups.',
+    content: `While GDPR and CCPA have dominated privacy discussions, several new state laws are creating additional compliance obligations. Startups must now navigate a complex patchwork of privacy regulations across multiple jurisdictions.
+
+## New State Privacy Laws:
+
+### Virginia Consumer Data Protection Act (VCDPA)
+- Effective January 1, 2023
+- Similar to GDPR with some key differences
+- Applies to businesses processing data of 100,000+ consumers
+
+### Colorado Privacy Act (CPA)
+- Effective July 1, 2023
+- Strongest state privacy law after California
+- Universal opt-out mechanism requirements
+
+### Connecticut Data Privacy Act (CTDPA)
+- Effective July 1, 2023
+- Comprehensive privacy framework
+- Specific requirements for data minimization
+
+## Compliance Framework:
+
+### Data Mapping
+- Catalog all personal data collected
+- Identify processing purposes
+- Document data flows
+
+### Consumer Rights Management
+- Implement data subject request procedures
+- Create opt-out mechanisms
+- Develop data portability processes
+
+### Technical Safeguards
+- Data minimization practices
+- Purpose limitation controls
+- Retention period management
+
+## Action Plan:
+
+1. **Conduct Privacy Assessment**: Evaluate current practices against new requirements
+2. **Update Privacy Policies**: Revise disclosures to reflect new rights
+3. **Implement Controls**: Deploy technical and administrative safeguards
+4. **Train Staff**: Ensure team understands new obligations
+
+Privacy compliance is no longer optional—it's a business imperative.`,
+    tags: ['Privacy', 'GDPR', 'CCPA', 'Compliance'],
+    audience: ['client-1', 'client-2', 'client-3', 'client-4', 'client-5'],
+    heroImage: '/privacy-regulations.jpg',
+    publishedAt: '2024-09-18T11:20:00Z',
+    status: 'published',
+    views: 178,
+    engagement: 32,
+  },
+  {
+    id: 'alert-6',
+    title: 'Series A Funding: Legal Due Diligence Checklist',
+    summary: 'Essential legal items to address before your Series A fundraising round.',
+    content: `Series A funding represents a significant milestone, but it also brings intense legal scrutiny. Investors will conduct comprehensive due diligence on your company's legal foundation. Being prepared can accelerate the process and improve terms.
+
+## Corporate Structure Review:
+
+### Entity Formation
+- Verify proper incorporation and good standing
+- Confirm authorized share structure
+- Review corporate governance documents
+
+### Equity and Cap Table
+- Audit all equity issuances and transfers
+- Verify option plan compliance
+- Document all convertible instruments
+
+### Intellectual Property
+- Confirm ownership of all IP assets
+- Review employment agreements for IP assignments
+- Audit third-party IP licenses
+
+## Key Legal Documents:
+
+### Employment Matters
+- Employee agreements and offer letters
+- Independent contractor arrangements
+- Confidentiality and invention assignment agreements
+
+### Commercial Contracts
+- Key customer and vendor agreements
+- Partnership and collaboration agreements
+- Real estate and equipment leases
+
+### Regulatory Compliance
+- Industry-specific licenses and permits
+- Data privacy and security compliance
+- Export control and international trade
+
+## Common Red Flags:
+
+1. **Incomplete IP Assignments**: Ensure all employee IP is properly assigned
+2. **Outdated Corporate Records**: Maintain current board resolutions and minutes
+3. **Missing Compliance Documentation**: Have all required permits and licenses ready
+
+## Preparation Timeline:
+
+- **6 months before**: Begin corporate cleanup and IP audit
+- **3 months before**: Complete employment agreement reviews
+- **1 month before**: Finalize all documentation and compliance matters
+
+Proper preparation can significantly reduce legal fees and accelerate closing.`,
+    tags: ['Series A', 'Due Diligence', 'Fundraising', 'Corporate'],
+    audience: ['client-2', 'client-3'],
+    heroImage: '/series-a-due-diligence.jpg',
+    publishedAt: '2024-09-15T13:10:00Z',
+    status: 'published',
+    views: 267,
+    engagement: 45,
+  },
+  {
+    id: 'alert-7',
+    title: 'International Expansion: Legal Framework for Global Growth',
+    summary: 'Key legal considerations when expanding your startup beyond domestic markets.',
+    content: `International expansion offers tremendous growth opportunities but introduces complex legal challenges. Understanding the regulatory landscape in target markets is crucial for successful global expansion.
+
+## Market Entry Strategies:
+
+### Subsidiary Formation
+- Choose optimal entity structure for each jurisdiction
+- Understand local corporate governance requirements
+- Plan for tax optimization and compliance
+
+### Partnership Models
+- Joint venture structures and considerations
+- Distribution and licensing agreements
+- Strategic alliance frameworks
+
+### Direct Operations
+- Branch office establishment requirements
+- Local employment law compliance
+- Cross-border data transfer restrictions
+
+## Regulatory Considerations:
+
+### Data Protection
+- GDPR compliance for EU operations
+- Local privacy law requirements
+- Cross-border data transfer mechanisms
+
+### Employment Law
+- Local labor regulations and worker protections
+- Immigration and work authorization requirements
+- Employee benefit and compensation compliance
+
+### Intellectual Property
+- Trademark registration in target markets
+- Patent filing strategies for international protection
+- Trade secret protection across jurisdictions
+
+## Risk Management:
+
+### Compliance Programs
+- Local regulatory monitoring systems
+- Anti-corruption and anti-bribery policies
+- Export control and sanctions compliance
+
+### Contract Management
+- Standardized international contract templates
+- Dispute resolution and governing law clauses
+- Currency and payment terms considerations
+
+## Success Factors:
+
+1. **Local Expertise**: Partner with experienced local counsel
+2. **Phased Approach**: Start with low-risk markets and expand gradually
+3. **Cultural Awareness**: Understand local business practices and customs
+4. **Flexible Structure**: Design expansion strategy to accommodate different markets
+
+Global expansion requires careful planning but can significantly accelerate growth.`,
+    tags: ['International', 'Expansion', 'Global', 'Compliance'],
+    audience: ['client-1', 'client-4'],
+    heroImage: '/international-expansion.jpg',
+    publishedAt: '2024-09-12T10:30:00Z',
+    status: 'published',
+    views: 134,
+    engagement: 22,
+  },
+  {
+    id: 'alert-8',
+    title: 'Employee Stock Options: Valuation and Tax Implications',
+    summary: 'Understanding 409A valuations and the tax treatment of employee equity compensation.',
+    content: `Employee stock options are a powerful tool for attracting and retaining talent, but they come with complex valuation and tax requirements. Understanding these implications is crucial for both companies and employees.
+
+## 409A Valuation Requirements:
+
+### Fair Market Value Determination
+- Independent valuation requirements for private companies
+- Valuation methodologies and acceptable approaches
+- Timing requirements for option grants
+
+### Safe Harbor Provisions
+- Qualified independent appraiser requirements
+- Documentation and reporting obligations
+- Penalty consequences for non-compliance
+
+### Valuation Updates
+- Annual valuation refresh requirements
+- Triggering events requiring interim valuations
+- Material change considerations
+
+## Tax Treatment:
+
+### Employee Tax Consequences
+- Ordinary income recognition on exercise
+- Capital gains treatment on sale
+- Alternative Minimum Tax (AMT) implications
+
+### Company Tax Deductions
+- Deduction timing and limitations
+- Section 83(b) election considerations
+- Reporting and withholding obligations
+
+### Incentive Stock Options (ISOs)
+- ISO qualification requirements
+- $100,000 annual limitation rules
+- Disqualifying disposition consequences
+
+## Best Practices:
+
+### For Companies
+1. **Regular Valuations**: Maintain current 409A valuations
+2. **Clear Communication**: Educate employees on tax implications
+3. **Proper Documentation**: Maintain accurate option grant records
+
+### For Employees
+1. **Understand Timing**: Consider tax implications of exercise timing
+2. **Plan for AMT**: Budget for potential AMT liability
+3. **Seek Professional Advice**: Consult tax advisors for complex situations
+
+## Common Pitfalls:
+
+- Granting options below fair market value
+- Failing to update valuations after material changes
+- Inadequate employee education on tax consequences
+
+Proper planning and compliance can maximize the benefits of equity compensation while avoiding costly mistakes.`,
+    tags: ['Stock Options', '409A', 'Tax', 'Equity Compensation'],
+    audience: ['client-1', 'client-3', 'client-5'],
+    heroImage: '/stock-options-tax.jpg',
+    publishedAt: '2024-09-10T15:45:00Z',
+    status: 'published',
+    views: 189,
+    engagement: 35,
+  },
 ];
 
 export const mockInsights: Insight = {

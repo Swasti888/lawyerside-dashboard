@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Plus, Search, Filter, Eye, Edit, Send, Users } from 'lucide-react'
+import { Plus, Search, Filter, Eye, Edit, Send, Users, Clock, Calendar, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import AlertCard from '@/components/alerts/AlertCard'
 import ComposeAlertModal from '@/components/alerts/ComposeAlertModal'
 import AlertPreviewModal from '@/components/alerts/AlertPreviewModal'
 import { mockClientAlerts } from '@/data/mockData'
@@ -55,178 +55,141 @@ export default function ClientAlerts() {
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Client Alerts</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Legal Insights</h1>
           <p className="text-muted-foreground mt-1">
-            Create and publish legal updates and insights for your clients.
+            Articles and updates from our legal experts
           </p>
         </div>
         <Button onClick={() => setComposeModalOpen(true)} className="focus-ring">
           <Plus className="h-4 w-4 mr-2" />
-          Compose Alert
+          Compose Article
         </Button>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-card border rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <Send className="h-5 w-5 text-blue-500" />
-            <div>
-              <p className="text-2xl font-bold">{stats.published || 0}</p>
-              <p className="text-sm text-muted-foreground">Published</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-card border rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <Edit className="h-5 w-5 text-orange-500" />
-            <div>
-              <p className="text-2xl font-bold">{stats.draft || 0}</p>
-              <p className="text-sm text-muted-foreground">Drafts</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-card border rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <Eye className="h-5 w-5 text-green-500" />
-            <div>
-              <p className="text-2xl font-bold">{totalViews}</p>
-              <p className="text-sm text-muted-foreground">Total Views</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-card border rounded-lg p-4">
-          <div className="flex items-center gap-2">
-            <Users className="h-5 w-5 text-purple-500" />
-            <div>
-              <p className="text-2xl font-bold">{totalEngagement}</p>
-              <p className="text-sm text-muted-foreground">Engagement</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Filters */}
+      {/* Search and Filter */}
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <div className="flex flex-col sm:flex-row gap-4 flex-1">
           {/* Search */}
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Search alerts..."
+              placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-9 focus-ring"
             />
           </div>
 
-          {/* Status Filter */}
+          {/* Category Filter */}
           <Select value={statusFilter} onValueChange={setStatusFilter}>
             <SelectTrigger className="w-40 focus-ring">
-              <SelectValue placeholder="Status" />
+              <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Status</SelectItem>
+              <SelectItem value="all">All Articles</SelectItem>
               <SelectItem value="published">Published</SelectItem>
               <SelectItem value="draft">Draft</SelectItem>
-              <SelectItem value="archived">Archived</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
 
-      {/* Results Count */}
-      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-        <Filter className="h-4 w-4" />
-        <span>
-          Showing {filteredAlerts.length} of {alerts.length} alerts
-        </span>
+      {/* Articles Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {publishedAlerts.map((alert) => (
+          <Card 
+            key={alert.id} 
+            className="cursor-pointer hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/20"
+            onClick={() => handleAlertClick(alert)}
+          >
+            <CardContent className="p-0">
+              {/* Image Placeholder */}
+              <div className="w-full h-48 bg-muted rounded-t-lg flex items-center justify-center">
+                <div className="text-center text-muted-foreground">
+                  <div className="w-16 h-16 mx-auto mb-2 bg-muted-foreground/20 rounded-lg flex items-center justify-center">
+                    <Send className="h-8 w-8 text-muted-foreground/60" />
+                  </div>
+                  <p className="text-sm">Article Image</p>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <Badge variant="secondary" className="text-xs">
+                    {alert.tags[0] || 'Legal Update'}
+                  </Badge>
+                </div>
+                
+                <h3 className="font-semibold tracking-tight text-xl mb-2 line-clamp-2">
+                  {alert.title}
+                </h3>
+                
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  {alert.summary}
+                </p>
+                
+                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <div className="flex items-center gap-4">
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {Math.ceil(alert.content.length / 500)} min read
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3" />
+                      {new Date(alert.publishedAt).toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric', 
+                        year: 'numeric' 
+                      })}
+                    </span>
+                  </div>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+        
+        {/* CALEX Brand Card */}
+        <Card className="cursor-pointer hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/20">
+          <CardContent className="p-0">
+            <div className="w-full h-48 bg-gradient-to-br from-primary/10 to-primary/5 rounded-t-lg flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-primary">C</span>
+                </div>
+                <h3 className="font-bold text-xl text-primary">CALEX</h3>
+                <p className="text-sm text-muted-foreground">Legal Partners</p>
+              </div>
+            </div>
+            <div className="p-6">
+              <p className="text-muted-foreground text-sm text-center">
+                Your trusted legal counsel for startup growth and corporate excellence.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-      {/* Alerts Tabs */}
-      <Tabs defaultValue="published" className="space-y-4">
-        <TabsList className="grid w-full grid-cols-2 max-w-md">
-          <TabsTrigger value="published" className="flex items-center gap-2">
-            <Send className="h-4 w-4" />
-            Published
-            <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full">
-              {publishedAlerts.length}
-            </span>
-          </TabsTrigger>
-          <TabsTrigger value="drafts" className="flex items-center gap-2">
-            <Edit className="h-4 w-4" />
-            Drafts
-            <span className="bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full">
-              {draftAlerts.length}
-            </span>
-          </TabsTrigger>
-        </TabsList>
-
-        {/* Published Alerts */}
-        <TabsContent value="published" className="space-y-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {publishedAlerts.map((alert) => (
-              <AlertCard
-                key={alert.id}
-                alert={alert}
-                onClick={() => handleAlertClick(alert)}
-              />
-            ))}
-          </div>
-
-          {publishedAlerts.length === 0 && (
-            <div className="text-center py-12">
-              <Send className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No published alerts</h3>
-              <p className="text-muted-foreground mb-4">
-                {searchTerm || statusFilter !== 'all' 
-                  ? 'Try adjusting your search criteria.' 
-                  : 'Start by creating your first client alert.'}
-              </p>
-              {!(searchTerm || statusFilter !== 'all') && (
-                <Button onClick={() => setComposeModalOpen(true)}>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Compose Alert
-                </Button>
-              )}
-            </div>
+      {/* Empty State */}
+      {publishedAlerts.length === 0 && (
+        <div className="text-center py-12">
+          <Send className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+          <h3 className="text-lg font-semibold mb-2">No articles yet</h3>
+          <p className="text-muted-foreground mb-4">
+            {searchTerm || statusFilter !== 'all' 
+              ? 'Try adjusting your search criteria.' 
+              : 'Start by creating your first legal insight article.'}
+          </p>
+          {!(searchTerm || statusFilter !== 'all') && (
+            <Button onClick={() => setComposeModalOpen(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Compose Article
+            </Button>
           )}
-        </TabsContent>
-
-        {/* Draft Alerts */}
-        <TabsContent value="drafts" className="space-y-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {draftAlerts.map((alert) => (
-              <AlertCard
-                key={alert.id}
-                alert={alert}
-                onClick={() => handleAlertClick(alert)}
-              />
-            ))}
-          </div>
-
-          {draftAlerts.length === 0 && (
-            <div className="text-center py-12">
-              <Edit className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No draft alerts</h3>
-              <p className="text-muted-foreground mb-4">
-                {searchTerm || statusFilter !== 'all' 
-                  ? 'Try adjusting your search criteria.' 
-                  : 'All your alerts have been published or you haven\'t created any drafts yet.'}
-              </p>
-              {!(searchTerm || statusFilter !== 'all') && (
-                <Button onClick={() => setComposeModalOpen(true)}>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Create Draft
-                </Button>
-              )}
-            </div>
-          )}
-        </TabsContent>
-      </Tabs>
+        </div>
+      )}
 
       {/* Modals */}
       <ComposeAlertModal
