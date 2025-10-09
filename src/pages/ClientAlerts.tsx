@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus, Search, Filter, Eye, Edit, Send, Users, Clock, Calendar, ArrowRight } from 'lucide-react'
+import { Plus, Search, Send, Clock, Calendar, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent } from '@/components/ui/card'
@@ -28,7 +28,6 @@ export default function ClientAlerts() {
   })
 
   const publishedAlerts = filteredAlerts.filter(alert => alert.status === 'published')
-  const draftAlerts = filteredAlerts.filter(alert => alert.status === 'draft')
 
   const handleAlertClick = (alert: ClientAlert) => {
     setSelectedAlert(alert)
@@ -38,17 +37,6 @@ export default function ClientAlerts() {
   const handleNewAlert = (newAlert: ClientAlert) => {
     setAlerts(prev => [newAlert, ...prev])
   }
-
-  const getStatusStats = () => {
-    return alerts.reduce((acc, alert) => {
-      acc[alert.status] = (acc[alert.status] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
-  }
-
-  const stats = getStatusStats()
-  const totalViews = alerts.reduce((sum, alert) => sum + alert.views, 0)
-  const totalEngagement = alerts.reduce((sum, alert) => sum + alert.engagement, 0)
 
   return (
     <div className="space-y-6">
