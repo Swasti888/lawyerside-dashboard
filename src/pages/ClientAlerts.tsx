@@ -18,6 +18,21 @@ export default function ClientAlerts() {
   const [previewModalOpen, setPreviewModalOpen] = useState(false)
   const [selectedAlert, setSelectedAlert] = useState<ClientAlert | null>(null)
 
+  // Helper function to get the correct image extension based on the image number
+  const getImageExtension = (imageNumber: number): string => {
+    const extensions: Record<number, string> = {
+      1: 'webp',
+      2: 'png', 
+      3: 'jpeg',
+      4: 'webp',
+      5: 'png',
+      6: 'png',
+      7: 'jpg',
+      8: 'jpeg'
+    }
+    return extensions[imageNumber] || 'jpg'
+  }
+
   const filteredAlerts = alerts.filter(alert => {
     const matchesSearch = alert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          alert.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -84,21 +99,37 @@ export default function ClientAlerts() {
 
       {/* Articles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {publishedAlerts.map((alert) => (
+        {publishedAlerts.map((alert, index) => (
           <Card 
             key={alert.id} 
             className="cursor-pointer hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/20"
             onClick={() => handleAlertClick(alert)}
           >
             <CardContent className="p-0">
-              {/* Image Placeholder */}
-              <div className="w-full h-48 bg-muted rounded-t-lg flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-16 h-16 mx-auto mb-2 bg-muted-foreground/20 rounded-lg flex items-center justify-center">
-                    <Send className="h-8 w-8 text-muted-foreground/60" />
-                  </div>
-                  <p className="text-sm">Article Image</p>
-                </div>
+              {/* Article Image */}
+              <div className="w-full h-48 rounded-t-lg overflow-hidden">
+                <img 
+                  src={`/alerts/${index + 1}.${getImageExtension(index + 1)}`}
+                  alt={alert.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = `
+                      <div class="w-full h-full bg-muted flex items-center justify-center">
+                        <div class="text-center text-muted-foreground">
+                          <div class="w-16 h-16 mx-auto mb-2 bg-muted-foreground/20 rounded-lg flex items-center justify-center">
+                            <svg class="h-8 w-8 text-muted-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                          </div>
+                          <p class="text-sm">Article Image</p>
+                        </div>
+                      </div>
+                    `;
+                  }}
+                />
               </div>
               
               {/* Content */}
