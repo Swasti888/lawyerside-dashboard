@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FileText, User, Calendar, Download, Share, Eye, MessageSquare, ChevronDown, ChevronUp } from 'lucide-react'
+import { FileText, Calendar, Download, Share, Eye, MessageSquare, ChevronDown, ChevronUp } from 'lucide-react'
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
-import { Document, ActivityPost } from '@/data/types'
+import { Document } from '@/data/types'
 import { formatDateTime, formatRelativeTime, getInitials } from '@/lib/utils'
 import { mockActivityPosts } from '@/data/mockData'
 
@@ -236,7 +236,7 @@ export default function DocumentDetailModal({
 
             <TabsContent value="versions" className="flex-1 mt-4">
               <div className="space-y-4 max-h-96 overflow-y-auto">
-                {document.versions.slice().reverse().map((version, index) => (
+                {document.versions.slice().reverse().map((version) => (
                   <Card key={version.version}>
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between">

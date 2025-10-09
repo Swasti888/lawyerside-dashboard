@@ -1,4 +1,4 @@
-import { FileText, Calendar, User, Clock, CheckCircle, XCircle, Edit } from 'lucide-react'
+import { FileText, Calendar, Clock, CheckCircle, XCircle, Edit } from 'lucide-react'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'

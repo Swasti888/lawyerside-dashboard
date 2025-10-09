@@ -1,4 +1,4 @@
-import { MessageSquare, User, Calendar, Tag, Paperclip, Bot, Eye, Download, RotateCcw } from 'lucide-react'
+import { Tag, Paperclip, Bot, Eye, Download, RotateCcw } from 'lucide-react'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'

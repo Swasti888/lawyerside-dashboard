@@ -141,7 +141,7 @@ export default function NewQueryModal({
     return prompt
   }
 
-  const generateFullAnswer = (prompt: string, topic: string): string => {
+  const generateFullAnswer = (_prompt: string, topic: string): string => {
     return `Based on your query regarding ${topic.toLowerCase()}, here is a comprehensive legal analysis...`
   }
 
@@ -158,7 +158,7 @@ export default function NewQueryModal({
     return [...commonTags, ...promptTags].slice(0, 5)
   }
 
-  const generateSections = (prompt: string, topic: string) => {
+  const generateSections = (_prompt: string, topic: string) => {
     return {
       summary: `Analysis of ${topic.toLowerCase()} query with key legal considerations`,
       issues: [

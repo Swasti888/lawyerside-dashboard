@@ -1,4 +1,4 @@
-import { MessageSquare, User, Calendar, Tag, Paperclip, Bot, Download, RotateCcw, Copy } from 'lucide-react'
+import { MessageSquare, Calendar, Tag, Paperclip, Bot, Download, RotateCcw, Copy } from 'lucide-react'
 import {
   Dialog,
   DialogContent,
